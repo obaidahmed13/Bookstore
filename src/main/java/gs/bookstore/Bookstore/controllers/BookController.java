@@ -17,10 +17,23 @@ public class BookController {
     public List<Book> getAllBooks() {
         return this.bookServ.getAllBooks();
     }
+
+    @GetMapping("/book/name")
+    public List<Book> getBookByName(@RequestParam String name) {
+        return this.bookServ.findByName(name);
+    }
+
+    @GetMapping("/book/author")
+    public List<Book> getBookByAuthor(@RequestParam String author) {
+        return this.bookServ.findByAuthor(author);
+    }
+
     @GetMapping("/book/{id}")
     public Optional<Book> getOneBook(@PathVariable Long id) {
         return this.bookServ.getOneBook(id);
     }
+
+
 
     @PostMapping("/book/add")
     public Book addBook(@RequestBody Book book) {

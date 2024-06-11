@@ -37,4 +37,14 @@ public class BookServiceImp implements BookService{
     public String removeBook(Long id) {
         return "Book has been removed!";
     }
+
+    @Override
+    public List<Book> findByName(String name) {
+        return this.bookRepo.findByName(name);
+    }
+
+    @Override
+    public List<Book> findByAuthor(String author) {
+        return this.bookRepo.findByAuthor(author);
+    }
 }
